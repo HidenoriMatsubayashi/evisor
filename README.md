@@ -3,6 +3,8 @@
 
 `eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This is intended for embedded use (ARM64 devices) and educational purposes.
 
+https://user-images.githubusercontent.com/62131389/236361865-c02a18ce-667f-489a-a9b2-cd72a2d21952.mov
+
 ## Supported devices
 
 - Raspberry Pi 4 Model B (BCM2711 / aarch64 only)
@@ -67,8 +69,6 @@ Copy eVisor image file to the SD card:
 cp build/kernel.bin <path_to_sdcard>/boot/kernel.bin
 ```
 
-./demos/images/evisor_rpi4_nuttx_demo.mov
-
 ### QEMU + NuttX (Guest OS)
 
 #### Install QEMU
@@ -102,7 +102,7 @@ qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
   -machine virt,virtualization=on,gic-version=2 -net none \
   -chardev stdio,id=con,mux=on -serial chardev:con -mon chardev=con,mode=readline \
   -kernel ./kernel.elf -m 1G \
-  -d mmu,in_asm,guest_errors,int,exec,page -D log.txt
+  -d mmu,in_asm,guest_errors,int,exec,page -D qemu_trace.log
 ```
 
 ## Special thanks!
