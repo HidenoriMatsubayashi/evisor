@@ -1,4 +1,5 @@
 # eVisor
+![build](https://github.com/HidenoriMatsubayashi/evisor/workflows/build/badge.svg)
 
 `eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This is intended for embedded use (ARM64 devices) and educational purposes.
 
