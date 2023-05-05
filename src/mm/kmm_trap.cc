@@ -1,15 +1,15 @@
 #include "mm/kmm_trap.h"
 
 #include "kernel/sched/sched.h"
-#include "mm/heap/kmm_zalloc.h"
 #include "mm/pgtable_stage2.h"
+#include "mm/user_heap/umm_zalloc.h"
 
 namespace evisor {
 
 bool HandleMmTrapMemoryAccessFault(va_t addr) {
   auto& sched = Sched::Get();
   auto* tsk = sched.GetCurrentTask();
-  auto page = reinterpret_cast<va_t>(kmm_zalloc(PAGE_SIZE));
+  auto page = reinterpret_cast<va_t>(umm_zalloc(PAGE_SIZE));
   if (!page) {
     return false;
   }
