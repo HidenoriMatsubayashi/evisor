@@ -2,11 +2,10 @@
 #define EVISOR_PLATFORMS_PLATFORM_H_
 
 #include "platforms/board.h"
-#include "platforms/gpio.h"
 #include "platforms/serial.h"
 
 #ifdef BOARD_IS_RASPI4
-#include "platforms/bcm2711/gpio_bcm2711.h"
+#include "drivers/gpio/gpio_bcm2711.h"
 #include "platforms/bcm2711/peripheral.h"
 #else
 #include "platforms/qemu/peripheral.h"

@@ -1,5 +1,5 @@
-#ifndef EVISOR_PLATFORMS_GPIO_H_
-#define EVISOR_PLATFORMS_GPIO_H_
+#ifndef EVISOR_DRIVERS_GPIO_H_
+#define EVISOR_DRIVERS_GPIO_H_
 
 #include <cstdbool>
 #include <cstdint>
@@ -8,15 +8,15 @@ namespace evisor {
 
 class Gpio {
  public:
-  enum GpioMode {
-    kInput = 0b000,
-    kOutput = 0b001,
-    kAlt0 = 0b100,
-    kAlt1 = 0b101,
-    kAlt2 = 0b110,
-    kAlt3 = 0b111,
-    kAlt4 = 0b011,
-    kAlt5 = 0b010
+  enum class GpioMode {
+    kInput,
+    kOutput,
+    kAlt0,
+    kAlt1,
+    kAlt2,
+    kAlt3,
+    kAlt4,
+    kAlt5,
   };
 
   Gpio() = default;
@@ -32,4 +32,4 @@ class Gpio {
 
 }  // namespace evisor
 
-#endif  // EVISOR_PLATFORMS_GPIO_H_
+#endif  // EVISOR_DRIVERS_GPIO_H_

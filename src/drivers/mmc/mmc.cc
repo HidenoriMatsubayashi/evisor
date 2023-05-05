@@ -6,8 +6,8 @@
 
 #include "common/logger.h"
 #include "drivers/clkrst/clkrst_bcm2711.h"
+#include "drivers/gpio/gpio_bcm2711.h"
 #include "drivers/mmc/mmc_internal.h"
-#include "platforms/gpio.h"
 #include "platforms/timer.h"
 
 namespace evisor {

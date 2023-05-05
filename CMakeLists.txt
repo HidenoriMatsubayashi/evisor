@@ -37,18 +37,18 @@ if (${BOARD} STREQUAL "raspi4")
   add_definitions(-DBOARD_IS_RASPI4)
   set(SOURCES_BOARD
     "src/drivers/clkrst/clkrst_bcm2711.cc"
+    "src/drivers/gpio/gpio_bcm2711.cc"
     "src/drivers/mailbox/mailbox_bcm2711.cc"
     "src/platforms/bcm2711/board_bcm2711.cc"
-    "src/platforms/bcm2711/gpio_bcm2711.cc"
     "src/platforms/bcm2711/system_timer.cc"
     )
 else()
   add_definitions(-DBOARD_IS_QEMU)
   set(SOURCES_BOARD
     "src/drivers/clkrst/clkrst_bcm2711.cc" # FIXME
+    "src/drivers/gpio/gpio_bcm2711.cc" # FIXME
     "src/drivers/mailbox/mailbox_bcm2711.cc" # FIXME
     "src/platforms/qemu/board_qemu.cc"
-    "src/platforms/bcm2711/gpio_bcm2711.cc" # FIXME
     "src/platforms/bcm2711/system_timer.cc" # FIXME
   )
 endif()
