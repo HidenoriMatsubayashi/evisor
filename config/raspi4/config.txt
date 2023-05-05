@@ -1,0 +1,19 @@
+# Documentation:
+# https://www.raspberrypi.com/documentation/computers/config_txt.html
+
+[pi4]
+enable_jtag_gpio=1
+enable_gic=1
+
+[all]
+# boot aarch64 mode
+arm_64bit=1
+
+# kernel file
+kernel=kernel.bin
+
+# enable uart
+enable_uart=1
+
+# set uart clock to 48MHz
+init_uart_clock=48000000
