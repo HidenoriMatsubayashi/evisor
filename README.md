@@ -1,7 +1,7 @@
 # eVisor
 ![Build](https://github.com/HidenoriMatsubayashi/evisor/workflows/Build/badge.svg)
 
-`eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This is intended for embedded use (ARM64 devices) and educational purposes.
+`eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This project is aimed for embedded use (ARM64 devices) and educational purposes.
 
 https://user-images.githubusercontent.com/62131389/236361865-c02a18ce-667f-489a-a9b2-cd72a2d21952.mov
 
@@ -14,11 +14,12 @@ https://user-images.githubusercontent.com/62131389/236361865-c02a18ce-667f-489a-
 
 - Switch to clang/llvm from gcc
 - Support multi CPU cores
+- Fix temporary implementation of memory management APIs like kmm_malloc
+- Add Hypervisor system call APIs like KVM
+- Support GIC version 3 and 4
 - Improve scheduling algorithm
 - Improve mmc diriver (SD data transfer speed)
-- Support GIC version 3 and 4
 - Support Linux OS
-- Add Hypervisor system call APIs like KVM
 - Restructuring / refactoring source code
 
 ## System requrements
