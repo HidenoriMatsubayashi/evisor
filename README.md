@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/62131389/236361865-c02a18ce-667f-489a-
 - Add Hypervisor system call APIs like KVM
 - Support GIC version 3 and 4
 - Improve scheduling algorithm
-- Improve mmc diriver (SD data transfer speed)
+- Improve mmc device driver (SD data transfer speed)
 - Support Linux OS
 - Restructuring / refactoring source code
 
@@ -75,7 +75,7 @@ cp build/kernel.bin <path_to_sdcard>/boot/kernel.bin
 #### Install QEMU
 
 ```shell
-$ sudo apt install qemu-system-arm 
+sudo apt install qemu-system-arm 
 ```
 
 #### Building
@@ -108,6 +108,6 @@ qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
 
 ## Special thanks!
 
-Special thanks the followings to since I particularly referred to it in the early stage of development.
+Special thanks the followings since I particularly referred to them in the early stage of development.
 
 - [raspvisor](https://github.com/matsud224/raspvisor) 
