@@ -4,10 +4,10 @@
 #include "common/cstdio/printf.h"
 
 #if defined(NDEBUG)
-#define _LOG_COMMON(level, format, ...)                              \
-  {                                                                  \
-    evisor::printf("%s[%s(%d)]: ", (level), __FUNCTION__, __LINE__); \
-    evisor::printf(format "\n", ##__VA_ARGS__);                      \
+#define _LOG_COMMON(level, format, ...)         \
+  {                                             \
+    evisor::printf("%s: ", (level));            \
+    evisor::printf(format "\n", ##__VA_ARGS__); \
   }
 #else
 #define _LOG_COMMON(level, format, ...)                          \
