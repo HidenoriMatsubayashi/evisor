@@ -145,7 +145,7 @@ target_link_options(${TARGET} PRIVATE "-static")
 set(CMAKE_ASM_FLAGS_RELEASE "${CMAKE_ASM_FLAGS} -DNDEBUG")
 set(CMAKE_ASM_FLAGS_DEBUG "${CMAKE_ASM_FLAGS_DEBUG} -DDEBUG")
 
-set(COMPILE_FLAGS "-Wall -nostartfiles -nostdlib -nolibc -nodefaultlibs -fno-builtin -ffreestanding -mstrict-align")
+set(COMPILE_FLAGS "-Wall -nostdlib -nodefaultlibs -fno-builtin -ffreestanding -mstrict-align")
 
 # Fix an issue using std::function: undefined reference to `__dso_handle'
 set(COMPILE_FLAGS "${COMPILE_FLAGS} -fno-use-cxa-atexit")
