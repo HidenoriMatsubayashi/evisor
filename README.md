@@ -14,6 +14,7 @@
 - Support multi CPU cores
 - Improve scheduling algorithm
 - Improve mmc diriver (SD data transfer speed)
+- Support GIC version 3 and 4
 - Support Linux OS
 - Add Hypervisor system call APIs like KVM
 - Restructuring / refactoring source code
