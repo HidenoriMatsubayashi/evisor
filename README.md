@@ -16,6 +16,7 @@ https://user-images.githubusercontent.com/62131389/236361865-c02a18ce-667f-489a-
 - Support multi CPU cores
 - Fix temporary implementation of memory management APIs like kmm_malloc
 - Add Hypervisor system call APIs like KVM
+- Full support for vCPU interrupts
 - Support GIC version 3 and 4
 - Improve scheduling algorithm
 - Improve mmc device driver (SD data transfer speed)
