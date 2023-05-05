@@ -35,7 +35,7 @@ $ sudo apt install cmake g++-aarch64-linux-gnu
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/aarch64-elf-gcc.cmake \
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
       -DCMAKE_BUILD_TYPE={Debug|Release} \
       -DBOARD={raspi4|qemu} \
       -DTEST_GUEST={serial|test_app|nuttx|linux}
@@ -49,7 +49,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/aarch64-elf-gcc.cmake \
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/aarch64-elf-gcc.cmake \
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
          -DCMAKE_BUILD_TYPE=Release -DBOARD=raspi4 -DTEST_GUEST=nuttx
 cmake --build .
 ```
@@ -83,7 +83,7 @@ sudo apt install qemu-system-arm
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/aarch64-elf-gcc.cmake \
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
          -DCMAKE_BUILD_TYPE=Release -DBOARD=qemu -DTEST_GUEST=nuttx
 cmake --build .
 ```

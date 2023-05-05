@@ -1,22 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
 
-if (NOT DEFINED CMAKE_TOOLCHAIN_FILE)
-  set(CMAKE_CROSSCOMPILING TRUE)
-  SET(CMAKE_SYSTEM_NAME Generic)
-  set(CMAKE_SYSTEM_PROCESSOR arm)
-
-  set(CMAKE_C_COMPILER clang)
-  set(CMAKE_CXX_COMPILER clang++)
-  set(CMAKE_ASM_COMPILER_TARGET "aarch64-linux-gnu")
-  set(CMAKE_C_COMPILER_TARGET "aarch64-linux-gnu")
-  set(CMAKE_CXX_COMPILER_TARGET "aarch64-linux-gnu")
-endif()
+# target
+set(CMAKE_SYSTEM_NAME      Generic)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
 
 set(CMAKE_CXX_STANDARD          20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS        OFF)
 
-set(TARGET                  "kernel")
+set(TARGET "kernel")
 project(${TARGET} LANGUAGES ASM C CXX)
 
 # ==========================================================================
