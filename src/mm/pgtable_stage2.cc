@@ -3,7 +3,6 @@
 #include "arch/arm64/mmu.h"
 #include "common/logger.h"
 #include "kernel/sched/sched.h"
-#include "mm/heap/kmm_malloc.h"
 #include "mm/heap/kmm_zalloc.h"
 #include "platforms/platform.h"
 #include "platforms/platform_config.h"
