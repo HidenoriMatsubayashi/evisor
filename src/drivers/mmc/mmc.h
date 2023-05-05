@@ -123,7 +123,7 @@ class Mmc {
     RT48Busy = 3
   };
 
-  const CmdRegister kReserved_ = { 1, 1, 3, 1, 1, 0xF, 3, 1, 1, 1, 1, 3, 0xF, 3 };
+  const CmdRegister kReserved_ = {1, 1, 3, 1, 1, 0xF, 3, 1, 1, 1, 1, 3, 0xF, 3};
   const CmdRegister kCommands_[56] = {
       {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
       kReserved_,
@@ -196,7 +196,9 @@ class Mmc {
        0},
   };
 
-  bool HandleDataCommand(bool write, uint8_t* buf, uint32_t buf_size,
+  bool HandleDataCommand(bool write,
+                         uint8_t* buf,
+                         uint32_t buf_size,
                          uint32_t block);
   bool AppCommand(CommandData& d);
   bool SendCommand(CommandData& d);

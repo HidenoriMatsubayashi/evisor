@@ -71,7 +71,9 @@ void ArmGenericTimer::HandleIrq() {
   SetCompare(next_counter_value_);
 }
 
-uint64_t ArmGenericTimer::GetTimerCount() { return READ_CPU_REG(cntpct_el0); }
+uint64_t ArmGenericTimer::GetTimerCount() {
+  return READ_CPU_REG(cntpct_el0);
+}
 
 uint8_t ArmGenericTimer::GetIStatus() {
   return (READ_CPU_REG(cnthp_ctl_el2) >> 2) & 0x1;

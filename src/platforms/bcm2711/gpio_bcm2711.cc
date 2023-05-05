@@ -9,7 +9,9 @@ namespace {
 constexpr uint8_t kMaxPortNum = 57;
 }
 
-GpioBcm2711::GpioBcm2711() { regs_ = reinterpret_cast<GpioRegs*>(GPIO_BASE); }
+GpioBcm2711::GpioBcm2711() {
+  regs_ = reinterpret_cast<GpioRegs*>(GPIO_BASE);
+}
 
 bool GpioBcm2711::SetMode(uint32_t port, GpioMode mode) {
   if (!CheckPort(port)) {
@@ -56,6 +58,8 @@ bool GpioBcm2711::Output(uint32_t port, bool out) {
   return true;
 }
 
-bool GpioBcm2711::CheckPort(uint32_t port) { return (port <= kMaxPortNum); }
+bool GpioBcm2711::CheckPort(uint32_t port) {
+  return (port <= kMaxPortNum);
+}
 
 }  // namespace evisor

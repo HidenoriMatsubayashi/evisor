@@ -10,16 +10,22 @@ constexpr int kMaxSize = 1024;
 }  // namespace
 
 Queue::Queue() {
-  buff_ = static_cast<uint32_t *>(kmm_malloc(kMaxSize));
+  buff_ = static_cast<uint32_t*>(kmm_malloc(kMaxSize));
   head_ = 0;
   tail_ = 0;
 }
 
-Queue::~Queue() { kmm_free(buff_); }
+Queue::~Queue() {
+  kmm_free(buff_);
+}
 
-bool Queue::Empty() { return head_ == tail_; }
+bool Queue::Empty() {
+  return head_ == tail_;
+}
 
-bool Queue::Full() { return head_ == (tail_ + 1) % kMaxSize; }
+bool Queue::Full() {
+  return head_ == (tail_ + 1) % kMaxSize;
+}
 
 bool Queue::Push(uint32_t data) {
   if (Full()) {

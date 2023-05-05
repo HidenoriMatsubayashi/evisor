@@ -11,7 +11,9 @@ class PgTableStage2 {
  public:
   static void MapPageAccessible(Tcb* task, ipa_t ipa, pa_t page);
   static void MapNewPage(Tcb* tsk, ipa_t ipa, va_t page);
-  static void MapNewDevicePage(Tcb* task, ipa_t ipa, pa_t page,
+  static void MapNewDevicePage(Tcb* task,
+                               ipa_t ipa,
+                               pa_t page,
                                bool accessable);
   static pa_t GetIpa(va_t va);
 

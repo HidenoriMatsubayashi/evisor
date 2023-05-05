@@ -6,8 +6,8 @@
 /****************************************************************************
  * Pre-processor Definitions
  ****************************************************************************/
-#define CONFIG_DEVICEIO_BASEADDR  0x08000000
-#define CONFIG_DEVICEIO_SIZE      MB(512)
+#define CONFIG_DEVICEIO_BASEADDR 0x08000000
+#define CONFIG_DEVICEIO_SIZE MB(512)
 
 //#define CONFIG_MMU_DEBUG
 

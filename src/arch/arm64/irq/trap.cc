@@ -111,9 +111,12 @@ inline uint8_t EsrEl2Ec(uint64_t esr) {
   return ((esr >> kEsrEl2EcShift) & 0x3f);
 }
 
-inline bool TrapMcrMrcInstructions(Tcb* tsk, const uint8_t opc2,
-                                   const uint8_t opc1, const uint8_t crn,
-                                   const uint8_t rt, const uint8_t crm,
+inline bool TrapMcrMrcInstructions(Tcb* tsk,
+                                   const uint8_t opc2,
+                                   const uint8_t opc1,
+                                   const uint8_t crn,
+                                   const uint8_t rt,
+                                   const uint8_t crm,
                                    const uint8_t dir) {
 #define MSR(name, _op1, _crn, _crm, _op2)                                     \
   do {                                                                        \
@@ -304,7 +307,9 @@ inline bool HandleTrapMemAbort(va_t addr, uint64_t esr) {
 
 }  // namespace
 
-void TrapHandleLowerElAarch64Sync(uint64_t esr, uint64_t elr, uint64_t far,
+void TrapHandleLowerElAarch64Sync(uint64_t esr,
+                                  uint64_t elr,
+                                  uint64_t far,
                                   uint64_t hvc_nr) {
   const auto ec = EsrEl2Ec(esr);
   switch (ec) {

@@ -121,7 +121,9 @@ void Sched::PrintTasks() {
   }
 }
 
-Tcb* Sched::GetCurrentTask() const { return cur_tsk_; }
+Tcb* Sched::GetCurrentTask() const {
+  return cur_tsk_;
+}
 
 Tcb* Sched::GetTask(int pid) const {
   if (pid >= count_tsks_) {

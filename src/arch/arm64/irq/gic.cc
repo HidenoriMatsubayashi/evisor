@@ -6,7 +6,7 @@ namespace evisor {
 
 namespace {
 
-const char *kErrorTypes[] = {
+const char* kErrorTypes[] = {
     // clang-format off
     "SYNC_INVALID_SP0_EL2",
     "IRQ_INVALID_SP0_EL2",
@@ -32,7 +32,9 @@ const char *kErrorTypes[] = {
 
 }  // namespace
 
-void Gic::CatchUnexpectedIrqs(uint32_t type, uint32_t esr_el2, uint32_t elr_el2,
+void Gic::CatchUnexpectedIrqs(uint32_t type,
+                              uint32_t esr_el2,
+                              uint32_t elr_el2,
                               uint32_t far_el2) {
   PANIC("Uncatched exception(%s) ESR_EL2: %x, ELR_EL2: %x, FAR_EL2: %x",
         kErrorTypes[type], esr_el2, elr_el2, far_el2);

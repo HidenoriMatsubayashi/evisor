@@ -7,7 +7,9 @@
 extern "C" {
 #endif
 
-void TrapHandleLowerElAarch64Sync(uint64_t esr, uint64_t elr, uint64_t far,
+void TrapHandleLowerElAarch64Sync(uint64_t esr,
+                                  uint64_t elr,
+                                  uint64_t far,
                                   uint64_t hvc_nr);
 
 #ifdef __cplusplus

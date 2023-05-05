@@ -27,7 +27,9 @@ void SystemTimer::Start(uint32_t interval_us) {
   regs_->C1 = next_counter_value_;
 }
 
-void SystemTimer::Stop() { regs_->C1 = 0; }
+void SystemTimer::Stop() {
+  regs_->C1 = 0;
+}
 
 void SystemTimer::HandleIrq() {
   next_counter_value_ = next_counter_value_ + interval_us_;
@@ -35,6 +37,8 @@ void SystemTimer::HandleIrq() {
   regs_->CS = regs_->CS | kCsM1;
 }
 
-uint32_t SystemTimer::GetTime() { return regs_->CLO; }
+uint32_t SystemTimer::GetTime() {
+  return regs_->CLO;
+}
 
 }  // namespace evisor

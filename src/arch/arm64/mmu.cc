@@ -393,7 +393,9 @@ inline void Mmu::SetPteTableDesc(uint64_t* pte, uint64_t* table) {
   *pte = PTE_TABLE_DESC | (uint64_t)table;
 }
 
-void Mmu::SetPteBlockDesc(uint64_t* pte, uint64_t pa, uint32_t attrs,
+void Mmu::SetPteBlockDesc(uint64_t* pte,
+                          uint64_t pa,
+                          uint32_t attrs,
                           uint32_t level) {
 /* MAIR_ELx memory attributes */
 #define MAIR_ATTR_MASK 0x7U

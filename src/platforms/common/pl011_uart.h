@@ -1,11 +1,11 @@
 #ifndef EVISOR_PLATFORMS_COMMON_PL011_UART_H_
 #define EVISOR_PLATFORMS_COMMON_PL011_UART_H_
 
+#include <array>
 #include <cstdbool>
 #include <cstddef>
 #include <cstdint>
 #include <functional>
-#include <array>
 
 namespace evisor {
 

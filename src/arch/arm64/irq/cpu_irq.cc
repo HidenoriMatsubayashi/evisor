@@ -2,18 +2,26 @@
 
 #include "arch/arm64/irq/gic_v2.h"
 
-void CpuHandleIrq() { evisor::GicV2::Get().HandleIrq(); }
+void CpuHandleIrq() {
+  evisor::GicV2::Get().HandleIrq();
+}
 
-void CpuCatchUnExpectedIrqs(uint32_t type, uint32_t esr_el2, uint32_t elr_el2,
+void CpuCatchUnExpectedIrqs(uint32_t type,
+                            uint32_t esr_el2,
+                            uint32_t elr_el2,
                             uint32_t far_el2) {
   evisor::GicV2::Get().CatchUnexpectedIrqs(type, esr_el2, elr_el2, far_el2);
 }
 
 namespace evisor {
 
-void CpuEnableIrq() { __asm__ volatile("msr daifclr, #2"); }
+void CpuEnableIrq() {
+  __asm__ volatile("msr daifclr, #2");
+}
 
-void CpuDisableIrq() { __asm__ volatile("msr daifset, #2"); }
+void CpuDisableIrq() {
+  __asm__ volatile("msr daifset, #2");
+}
 
 void CpuInitIrqVectorTable() {
   __asm__ volatile(

@@ -75,7 +75,9 @@ int Mmc::Read(uint8_t* buf, uint32_t size) {
   return size;
 }
 
-bool Mmc::HandleDataCommand(bool write, uint8_t* buf, uint32_t buf_size,
+bool Mmc::HandleDataCommand(bool write,
+                            uint8_t* buf,
+                            uint32_t buf_size,
                             uint32_t block) {
   if (buf_size < device_.block_size || buf_size % device_.block_size != 0) {
     LOG_ERROR("Bad arguments: buffer size = %d, block size = %d", buf_size,

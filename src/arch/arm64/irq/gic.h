@@ -23,12 +23,16 @@ class Gic {
   // Handle IRQs
   virtual void HandleIrq() = 0;
 
-  void CatchUnexpectedIrqs(uint32_t type, uint32_t esr_el2, uint32_t elr_el2,
+  void CatchUnexpectedIrqs(uint32_t type,
+                           uint32_t esr_el2,
+                           uint32_t elr_el2,
                            uint32_t far_el2);
 
   // Register IRQ to GIC
-  virtual void RegisterIrq(uint16_t id, uint32_t target_processor,
-                           uint8_t priority, IrqHandler handler) = 0;
+  virtual void RegisterIrq(uint16_t id,
+                           uint32_t target_processor,
+                           uint8_t priority,
+                           IrqHandler handler) = 0;
 
   virtual void NotifyVirqSoftware() = 0;
 

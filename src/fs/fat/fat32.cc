@@ -277,7 +277,9 @@ int Fat32Fs::Read(fat32_file_t* file, void* buf, uint32_t offset, size_t len) {
   return tail - offset - remains;
 }
 
-int Fat32Fs::GetFileSize(fat32_file_t* file) { return file->size; }
+int Fat32Fs::GetFileSize(fat32_file_t* file) {
+  return file->size;
+}
 
 int Fat32Fs::IsDirectory(fat32_file_t* file) {
   return (file->attr & kAttrDirectory) != 0;
@@ -321,8 +323,11 @@ bool Fat32Fs::CheckBpb(fat32_bpb_t* bpb) {
   return true;
 }
 
-void Fat32Fs::InitFile(fat32_file_t* file, fat32_fat_t* fat, uint8_t attr,
-                       uint32_t size, uint32_t cluster) {
+void Fat32Fs::InitFile(fat32_file_t* file,
+                       fat32_fat_t* fat,
+                       uint8_t attr,
+                       uint32_t size,
+                       uint32_t cluster) {
   file->fat = fat;
   file->attr = attr;
   file->size = size;
@@ -421,7 +426,8 @@ char* Fat32Fs::GetSfn(fat32_dir_t* entry) {
   return result;
 }
 
-char* Fat32Fs::GetLfn(fat32_dir_t* entry, size_t offset,
+char* Fat32Fs::GetLfn(fat32_dir_t* entry,
+                      size_t offset,
                       fat32_dir_t* prev_entry) {
   static char result[256];
   char* p_result = result;
@@ -470,7 +476,8 @@ char* Fat32Fs::GetLfn(fat32_dir_t* entry, size_t offset,
   return result;
 }
 
-int Fat32Fs::CalcNextSector(fat32_fat_t* fat, uint32_t cur_sector,
+int Fat32Fs::CalcNextSector(fat32_fat_t* fat,
+                            uint32_t cur_sector,
                             ClusterLinkedListNode* cluster_list) {
   const uint32_t secs_per_clus = fat->bpb.BPB_SecPerClus;
   if (cur_sector % secs_per_clus != secs_per_clus - 1) {
@@ -503,7 +510,8 @@ uint32_t Fat32Fs::CalcNextCluster(fat32_fat_t* fat,
   return next_cluster;
 }
 
-uint32_t Fat32Fs::CalcSector(fat32_fat_t* fat, uint32_t cluster,
+uint32_t Fat32Fs::CalcSector(fat32_fat_t* fat,
+                             uint32_t cluster,
                              size_t offset) {
   const uint32_t first_sector =
       fat->data_first_sector + (cluster - 2) * fat->bpb.BPB_SecPerClus;

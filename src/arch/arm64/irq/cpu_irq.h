@@ -5,8 +5,10 @@
 
 extern "C" void CpuHandleIrq();
 
-extern "C" void CpuCatchUnExpectedIrqs(uint32_t type, uint32_t esr_el2,
-                                       uint32_t elr_el2, uint32_t far_el2);
+extern "C" void CpuCatchUnExpectedIrqs(uint32_t type,
+                                       uint32_t esr_el2,
+                                       uint32_t elr_el2,
+                                       uint32_t far_el2);
 
 namespace evisor {
 

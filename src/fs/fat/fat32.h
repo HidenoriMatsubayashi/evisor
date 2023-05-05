@@ -133,18 +133,23 @@ class Fat32Fs {
   uint8_t* ReadSector(uint32_t lba, uint32_t sector_num);
   bool CheckBpb(fat32_bpb_t* bpb);
 
-  inline void InitFile(fat32_file_t* file, fat32_fat_t* fat, uint8_t attr,
-                       uint32_t size, uint32_t cluster);
+  inline void InitFile(fat32_file_t* file,
+                       fat32_fat_t* fat,
+                       uint8_t attr,
+                       uint32_t size,
+                       uint32_t cluster);
 
   char* GetLfn(fat32_dir_t* entry, size_t offset, fat32_dir_t* prev_entry);
   uint8_t CreateLfnSum(fat32_dir_t* entry);
   char* GetSfn(fat32_dir_t* entry);
 
-  uint32_t CalcCluster(fat32_fat_t* fat, ClusterLinkedListNode* cluster_list,
+  uint32_t CalcCluster(fat32_fat_t* fat,
+                       ClusterLinkedListNode* cluster_list,
                        uint32_t offset);
   uint32_t CalcSector(fat32_fat_t* fat, uint32_t cluster, size_t offset);
   inline bool IsValidCluster(uint32_t cluster);
-  int CalcNextSector(fat32_fat_t* fat, uint32_t cur_sector,
+  int CalcNextSector(fat32_fat_t* fat,
+                     uint32_t cur_sector,
                      ClusterLinkedListNode* cluster_list);
   uint32_t CalcNextCluster(fat32_fat_t* fat,
                            ClusterLinkedListNode* cluster_list);

@@ -92,7 +92,9 @@ class Mmu {
 
   inline void SetPteTableDesc(uint64_t* pte, uint64_t* table);
 
-  void SetPteBlockDesc(uint64_t* pte, uint64_t pa, uint32_t attrs,
+  void SetPteBlockDesc(uint64_t* pte,
+                       uint64_t pa,
+                       uint32_t attrs,
                        uint32_t level);
 
   // Splits a block into table with entries spanning the old block

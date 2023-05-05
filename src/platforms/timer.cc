@@ -13,7 +13,9 @@ Timer::Timer() {
   GicV2::Get().RegisterIrq(interrupt_id, 0, 0xff, [this]() { HandleIrq(); });
 }
 
-Timer::~Timer() { Stop(); }
+Timer::~Timer() {
+  Stop();
+}
 
 void Timer::Start(uint32_t interval_us, Handler handler) {
   handler_ = handler;
@@ -25,7 +27,9 @@ void Timer::Stop() {
   handler_ = nullptr;
 }
 
-uint32_t Timer::GetSystemUsec() { return SystemTimer::Get().GetTime(); }
+uint32_t Timer::GetSystemUsec() {
+  return SystemTimer::Get().GetTime();
+}
 
 void Timer::Sleep(uint32_t msec) {
   uint32_t target_time = GetSystemUsec() + (msec * 1000);

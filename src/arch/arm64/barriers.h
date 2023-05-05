@@ -3,10 +3,16 @@
 
 namespace evisor {
 
-static inline void Arm64Isb() { __asm__ volatile("isb"); }
+static inline void Arm64Isb() {
+  __asm__ volatile("isb");
+}
 
-static inline void Arm64Dsb() { __asm__ volatile("dsb"); }
-static inline void Arm64DsbAllCore() { __asm__ volatile("dsb sy"); }
+static inline void Arm64Dsb() {
+  __asm__ volatile("dsb");
+}
+static inline void Arm64DsbAllCore() {
+  __asm__ volatile("dsb sy");
+}
 
 }  // namespace evisor
 

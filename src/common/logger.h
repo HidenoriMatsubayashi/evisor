@@ -23,10 +23,15 @@
     while (1)                                        \
       ;                                              \
   }
-#define LOG_ERROR(format, ...) _LOG_COMMON("[eVisor][ERROR]", format, ##__VA_ARGS__)
-#define LOG_WARN(format, ...) _LOG_COMMON("[eVisor][WARN]", format, ##__VA_ARGS__)
-#define LOG_INFO(format, ...) _LOG_COMMON("[eVisor][INFO]", format, ##__VA_ARGS__)
-#define LOG_DEBUG(format, ...) _LOG_COMMON("[eVisor][DEBUG]", format, ##__VA_ARGS__)
-#define LOG_TRACE(format, ...) _LOG_COMMON("[eVisor][TRACE]", format, ##__VA_ARGS__)
+#define LOG_ERROR(format, ...) \
+  _LOG_COMMON("[eVisor][ERROR]", format, ##__VA_ARGS__)
+#define LOG_WARN(format, ...) \
+  _LOG_COMMON("[eVisor][WARN]", format, ##__VA_ARGS__)
+#define LOG_INFO(format, ...) \
+  _LOG_COMMON("[eVisor][INFO]", format, ##__VA_ARGS__)
+#define LOG_DEBUG(format, ...) \
+  _LOG_COMMON("[eVisor][DEBUG]", format, ##__VA_ARGS__)
+#define LOG_TRACE(format, ...) \
+  _LOG_COMMON("[eVisor][TRACE]", format, ##__VA_ARGS__)
 
 #endif  // EVISOR_COMMON_LOGGER_H_

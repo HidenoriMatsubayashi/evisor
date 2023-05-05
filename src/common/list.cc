@@ -52,11 +52,17 @@ void LinkedList::PushBack(uint32_t key) {
   x->next = nil_;
 }
 
-void LinkedList::PopFront() { DeleteNode(nil_->next); }
+void LinkedList::PopFront() {
+  DeleteNode(nil_->next);
+}
 
-void LinkedList::PopBack() { DeleteNode(nil_->prev); }
+void LinkedList::PopBack() {
+  DeleteNode(nil_->prev);
+}
 
-void LinkedList::Delete(uint32_t key) { DeleteNode(SearchNode(key)); }
+void LinkedList::Delete(uint32_t key) {
+  DeleteNode(SearchNode(key));
+}
 
 LinkedList::Node* LinkedList::SearchNode(uint32_t key) {
   auto* cur = nil_->next;

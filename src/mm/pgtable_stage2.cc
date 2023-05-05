@@ -77,7 +77,9 @@ void PgTableStage2::MapNewPage(Tcb* tsk, ipa_t ipa, va_t page) {
   FlushTlbVMID();
 }
 
-void PgTableStage2::MapNewDevicePage(Tcb* task, ipa_t ipa, pa_t page,
+void PgTableStage2::MapNewDevicePage(Tcb* task,
+                                     ipa_t ipa,
+                                     pa_t page,
                                      bool accessable) {
   MapPage(
       task, ipa & PAGE_MASK, page,
@@ -129,7 +131,9 @@ pa_t PgTableStage2::CreatePageTable(va_t table, uint64_t shift, ipa_t ipa) {
   return reinterpret_cast<uint64_t*>(table)[index] & PAGE_MASK;
 }
 
-void* PgTableStage2::SetPageTableEntry(va_t pte, ipa_t ipa, pa_t pa,
+void* PgTableStage2::SetPageTableEntry(va_t pte,
+                                       ipa_t ipa,
+                                       pa_t pa,
                                        uint64_t flags) {
   uint64_t index = ipa >> PAGE_SHIFT;
   index = index & (PTRS_PER_TABLE - 1);

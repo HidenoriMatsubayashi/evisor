@@ -11,10 +11,10 @@ class GicV2 : public Gic {
   ~GicV2() = default;
 
   // Prevent copying.
-  GicV2(GicV2 const &) = delete;
-  GicV2 &operator=(GicV2 const &) = delete;
+  GicV2(GicV2 const&) = delete;
+  GicV2& operator=(GicV2 const&) = delete;
 
-  static GicV2 &Get() noexcept {
+  static GicV2& Get() noexcept {
     static GicV2 instance;
     return instance;
   }
@@ -23,7 +23,9 @@ class GicV2 : public Gic {
 
   void HandleIrq() override;
 
-  void RegisterIrq(uint16_t id, uint32_t target_processor, uint8_t priority,
+  void RegisterIrq(uint16_t id,
+                   uint32_t target_processor,
+                   uint8_t priority,
                    IrqHandler handler) override;
 
   void NotifyVirqSoftware() override;
@@ -128,10 +130,10 @@ class GicV2 : public Gic {
   } __attribute__((packed)) __attribute__((aligned(4)));
 
   struct GicRegs {
-    volatile GicDistributorRegs *D;
-    volatile GicCpuInterfaceRegs *C;
-    volatile GicVcpuInterfaceControlRegs *H;
-    volatile GicVcpuInterfaceRegs *V;
+    volatile GicDistributorRegs* D;
+    volatile GicCpuInterfaceRegs* C;
+    volatile GicVcpuInterfaceControlRegs* H;
+    volatile GicVcpuInterfaceRegs* V;
   };
 
   GicRegs regs_;

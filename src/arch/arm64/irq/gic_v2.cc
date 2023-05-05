@@ -24,19 +24,25 @@ constexpr uint32_t kGichLrHw = (1 << 31);
 constexpr uint32_t kGichLrVirtualIrqGrp0 = (0 << 30);
 constexpr uint32_t kGichLrVirtualIrqGrp1 = (1 << 30);
 constexpr uint32_t kGichLrStatePending = (1 << 28);
-constexpr uint32_t GICH_LR_PRIORITY(uint32_t x) { return x << 23; }
-constexpr uint32_t GICH_LR_PHYSICAL_ID(uint32_t x) { return x << 10; }
-constexpr uint32_t GICH_LR_VIRTUAL_ID(uint32_t x) { return x << 0; }
+constexpr uint32_t GICH_LR_PRIORITY(uint32_t x) {
+  return x << 23;
+}
+constexpr uint32_t GICH_LR_PHYSICAL_ID(uint32_t x) {
+  return x << 10;
+}
+constexpr uint32_t GICH_LR_VIRTUAL_ID(uint32_t x) {
+  return x << 0;
+}
 
 }  // namespace
 
 GicV2::GicV2() {
   regs_ = {
-      .D = reinterpret_cast<GicDistributorRegs *>(GIC_V2_DISTRIBUTOR_BASE),
-      .C = reinterpret_cast<GicCpuInterfaceRegs *>(GIC_V2_CPU_INTERFACE_BASE),
-      .H = reinterpret_cast<GicVcpuInterfaceControlRegs *>(
+      .D = reinterpret_cast<GicDistributorRegs*>(GIC_V2_DISTRIBUTOR_BASE),
+      .C = reinterpret_cast<GicCpuInterfaceRegs*>(GIC_V2_CPU_INTERFACE_BASE),
+      .H = reinterpret_cast<GicVcpuInterfaceControlRegs*>(
           GIC_V2_HYPERVISOR_BASE),
-      .V = reinterpret_cast<GicVcpuInterfaceRegs *>(GIC_V2_VIRTUAL_CPU_BASE),
+      .V = reinterpret_cast<GicVcpuInterfaceRegs*>(GIC_V2_VIRTUAL_CPU_BASE),
   };
 }
 
@@ -57,8 +63,10 @@ void GicV2::Init() {
   regs_.H->GICH_HCR = kGichHcrEn;
 }
 
-void GicV2::RegisterIrq(uint16_t id, uint32_t target_processor,
-                        uint8_t priority, IrqHandler handler) {
+void GicV2::RegisterIrq(uint16_t id,
+                        uint32_t target_processor,
+                        uint8_t priority,
+                        IrqHandler handler) {
   irq_handler_[id] = handler;
 
   // enable interrupt
