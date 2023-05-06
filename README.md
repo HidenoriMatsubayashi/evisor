@@ -3,6 +3,9 @@
 
 `eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This project is aimed for embedded use (ARM64 devices) and educational purposes.
 
+
+[eVisor demo video @ Youtube - NuttX runs on Raspberry Pi4](https://www.youtube.com/watch?v=A7E2ucZHLO0)
+
 [![eVisor demo](https://user-images.githubusercontent.com/62131389/236593400-03de6bf3-6b06-41fe-b855-702fefc4a87d.png)](https://www.youtube.com/watch?v=A7E2ucZHLO0)
 
 ## Supported devices
