@@ -15,13 +15,13 @@ constexpr char kHypervisorCommandSwitchTaskConsole = 's';
 }  // namespace
 
 Serial::~Serial() {
-  uart_.DisableReceiveInterrupt();
+  uart_.DisableReceiveIrq();
   uart_.Disable();
 }
 
 void Serial::Init() {
   uart_.Init(UART0_BASE);
-  uart_.EnableReceiveInterrupt([](uint8_t c) {
+  uart_.EnableReceiveIrq([](uint8_t c) {
     static bool hypervisor_command_comming = false;
     static bool hypervisor_command_switch_req = false;
     auto& sched = Sched::Get();

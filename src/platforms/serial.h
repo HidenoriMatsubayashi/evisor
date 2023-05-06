@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "platforms/common/pl011_uart.h"
+#include "drivers/uart/pl011_uart.h"
 
 namespace evisor {
 
