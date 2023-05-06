@@ -123,9 +123,9 @@ target_include_directories(${TARGET} PRIVATE "src")
 # Linker script
 # ==========================================================================
 if (${BOARD} STREQUAL "raspi4")
-  set(LINKER_SCRIPT "src/arch/arm64/boot/raspberry-pi4/linker.ld")
+  set(LINKER_SCRIPT "src/arch/arm64/scripts/rpi4/linker.ld")
 else()
-  set(LINKER_SCRIPT "src/arch/arm64/boot/qemu/cortex-a72/linker.ld")
+  set(LINKER_SCRIPT "src/arch/arm64/scripts/qemu/cortex-a72/linker.ld")
 endif()
 set_target_properties(${TARGET} PROPERTIES LINK_DEPENDS ${CMAKE_SOURCE_DIR}/${LINKER_SCRIPT})
 target_link_options(${TARGET} PRIVATE "-T${CMAKE_SOURCE_DIR}/${LINKER_SCRIPT}")
