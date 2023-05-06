@@ -3,7 +3,7 @@
 
 `eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This project is aimed for embedded use (ARM64 devices) and educational purposes.
 
-https://user-images.githubusercontent.com/62131389/236361865-c02a18ce-667f-489a-a9b2-cd72a2d21952.mov
+[![eVisor demo](https://user-images.githubusercontent.com/62131389/236593400-03de6bf3-6b06-41fe-b855-702fefc4a87d.png)](https://www.youtube.com/watch?v=A7E2ucZHLO0)
 
 ## Supported devices
 
