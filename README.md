@@ -111,4 +111,6 @@ qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
 
 Special thanks the followings since I particularly referred to them in the early stage of development.
 
-- [raspvisor](https://github.com/matsud224/raspvisor) 
+- [raspvisor](https://github.com/matsud224/raspvisor)
+- [LLD](https://github.com/rockytriton/LLD)
+- [Raspberry Pi 4 interrupt sample](https://github.com/tnishinaga/baremetal_pi4_irq_sample)
