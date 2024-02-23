@@ -452,12 +452,14 @@ void Mmu::SetPteBlockDesc(uint64_t* pte,
 
 #if defined(CONFIG_MMU_DEBUG)
   printf("%x: ", pte);
-  printf("%s ", (mem_type == MT_NORMAL)
-                    ? "MEM"
-                    : ((mem_type == MT_NORMAL_NC) ? "NC" : "DEV"));
-  printf("%s ", (attrs & MT_RW) ? "-RW" : "-RO");
-  printf("%s ", (attrs & MT_NS) ? "-NS" : "-S");
-  printf("%s\n", (attrs & MT_EXECUTE_NEVER) ? "-XN" : "-EXEC");
+  printf("%s ",
+         (mem_type == PageMemoryAttribute::kNormal)
+             ? "MEM"
+             : ((mem_type == PageMemoryAttribute::kNormalNC) ? "NC" : "DEV"));
+  printf("%s ", (attrs & PageTableEntryL3Desc::kRW) ? "-RW" : "-RO");
+  printf("%s ", (attrs & PageTableEntryL3Desc::kNonSecure) ? "-NS" : "-S");
+  printf("%s\n",
+         (attrs & PageTableEntryL3Desc::kExecuteNever) ? "-XN" : "-EXEC");
 #endif
 }
 
