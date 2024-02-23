@@ -44,6 +44,15 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
       -DTEST_GUEST={serial|test_app|nuttx|linux}
 ```
 
+### Self-building for ARM64 on ARM64
+
+```shell
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE={Debug|Release} \
+      -DBOARD={raspi4|qemu} \
+      -DTEST_GUEST={serial|test_app|nuttx|linux}
+```
+
 ## Examples
 
 ### Raspberry Pi4 + NuttX (Guest OS)
