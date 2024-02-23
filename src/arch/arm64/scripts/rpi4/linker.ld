@@ -19,7 +19,7 @@ SECTIONS {
   __start = .;
 
   /* text region for Hypervisor */
-  .text : {
+  .text : ALIGN(0x1000) {
     __text_start = .;
     KEEP(*(.text.start))
     *(.text*)
@@ -29,7 +29,7 @@ SECTIONS {
   __text_size = __text_end - __text_start;
 
   /* rodata region for Hypervisor */
-  .rodata : {
+  .rodata : ALIGN(0x1000) {
     __rodata_start = .;
     *(.rodata*)
     . = ALIGN(0x1000);
@@ -38,25 +38,25 @@ SECTIONS {
   __rodata_size = __rodata_end - __rodata_start;
 
   /* data region for Hypervisor */
-  .data : {
-    __data_start = . ;
+  .data : ALIGN(0x1000) {
+    __data_start = .;
     *(.data*)
     . = ALIGN(0x1000);
-    __data_end = . ;
+    __data_end = .;
   } > RAM
   __data_size = __data_end - __data_start;
 
   /* bss region for Hypervisor */
-  .bss : {
-    __bss_start = . ;
+  .bss : ALIGN(0x1000) {
+    __bss_start = .;
     *(.bss*)
     . = ALIGN(0x1000);
-    __bss_end = . ;
+    __bss_end = .;
   } > RAM
   __bss_size = __bss_end - __bss_start;
 
   /* 64MB heap region for Hypervisor */
-  .heap : {
+  .heap : ALIGN(0x1000) {
     __heap_start = .;
     . = . + 1024 * 1024 * 64; 
     . = ALIGN(0x1000);
@@ -65,7 +65,7 @@ SECTIONS {
   __heap_size = __heap_end - __heap_start;
 
   /* 1MB uncached region for Hypervisor */
-  .uncached_space : {
+  .uncached_space : ALIGN(0x1000) {
     __uncached_space_start = .;
     . = . + 1024 * 1024 * 1; 
     . = ALIGN(0x1000);
@@ -74,7 +74,7 @@ SECTIONS {
   __uncached_space_size = __uncached_space_end - __uncached_space_start;
 
   /* 2GB user memory region for guests */
-  .user_space : {
+  .user_space : ALIGN(0x1000) {
     __user_space_start = .;
     . = . + 1024 * 1024 * 1024 * 2;
     . = ALIGN(0x1000);
@@ -83,7 +83,7 @@ SECTIONS {
   __user_space_size = __user_space_end - __user_space_start;
 
   /* 64MB stack region for Hypervisor */
-  .stack : {
+  .stack : ALIGN(0x1000) {
     __stack_start = .;
     . = ALIGN(0x1000);
     __stack_end = __stack_start + (1024 * 1024) * 64;
