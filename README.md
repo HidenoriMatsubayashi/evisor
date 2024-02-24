@@ -29,7 +29,7 @@
 ## System requrements
 
 ```shell
-$ sudo apt install cmake g++-aarch64-linux-gnu
+sudo apt install cmake g++-aarch64-linux-gnu
 ```
 
 ## How to build
@@ -81,6 +81,15 @@ cp examples/nuttx/nuttx.bin <path_to_sdcard>/boot
 Copy eVisor image file to the SD card:
 ```shell
 cp build/kernel.bin <path_to_sdcard>/boot/kernel.bin
+```
+
+#### Serial console / UART logs
+
+The serial console and output logs are assigned to UART0 (GPIO 14, GPIO 15), with a baud rate of 115200bps.
+
+```
+sudo minicom -D /dev/ttyUSB0
+
 ```
 
 ### QEMU + NuttX (Guest OS)
