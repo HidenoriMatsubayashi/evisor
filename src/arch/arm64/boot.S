@@ -29,9 +29,7 @@ GLOBAL_FUNCTION(_start)
   mrs x0, mpidr_el1
   and x0, x0, #0xff
 
-  // Raspberry Pi4:
-  // - Initial mode (without any config.txt) is in EL2
-  // - It depends on config.txt
+  // Raspberry Pi4/5: RPI bootloader always enters in EL2
   cbz x0, kernel_boot_el2
   b proc_hlt
 
