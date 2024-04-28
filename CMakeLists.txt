@@ -145,6 +145,9 @@ set(COMPILE_FLAGS "${COMPILE_FLAGS} -fno-use-cxa-atexit")
 # Fix undefined reference to `__cxa_guard_acquire'
 set(COMPILE_FLAGS "${COMPILE_FLAGS} -fno-threadsafe-statics")
 
+# Disable creation of ".note.gnu.build-id" section"
+set(COMPILE_FLAGS "${COMPILE_FLAGS} -Wl,--build-id=none")
+
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
   set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g -O0")
 endif()
