@@ -173,6 +173,8 @@ inline bool TrapMcrMrcInstructions(Tcb* tsk,
 
     MRS(id_aa64mmfr0_el1, kOp1SCR, kCrnSCTLR_EL1, 7, 0);
     MRS(id_aa64mmfr1_el1, kOp1SCR, kCrnSCTLR_EL1, 7, 1);
+    //MRS(id_aa64mmfr2_el1, kOp1SCR, kCrnSCTLR_EL1, 7, 2);
+    MRS(mpidr_el1, kOp1SCR, kCrnSCTLR_EL1, 7, 3);
 
     MRS(id_aa64afr0_el1, kOp1SCR, kCrnSCTLR_EL1, 5, 4);
     MRS(id_aa64afr1_el1, kOp1SCR, kCrnSCTLR_EL1, 5, 5);
@@ -252,7 +254,7 @@ inline void HandleTrapSystem(uint32_t iss) {
     default:
       break;
   }
-  PANIC("The event was not handled in HandleTrapSystem");
+  PANIC("The event (%x) was not handled in HandleTrapSystem", cond);
 }
 
 /* ISS encoding for an exception from a Data Abort */
