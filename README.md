@@ -15,7 +15,6 @@
 
 ## TODOs
 
-- Switch to clang/llvm from gcc
 - Support multi CPU cores
 - Fix temporary implementation of memory management APIs like kmm_malloc
 - Add Hypervisor system call APIs like KVM
@@ -29,7 +28,7 @@
 ## System requrements
 
 ```shell
-sudo apt install cmake g++-aarch64-linux-gnu
+sudo apt install cmake g++-aarch64-linux-gnu clang
 ```
 
 ## How to build
