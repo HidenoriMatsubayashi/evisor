@@ -22,7 +22,7 @@ constexpr uint32_t kGichHcrEn = (1 << 0);
 /* GICH_LR */
 constexpr uint32_t kGichLrHw = (1 << 31);
 constexpr uint32_t kGichLrVirtualIrqGrp0 = (0 << 30);
-constexpr uint32_t kGichLrVirtualIrqGrp1 = (1 << 30);
+[[maybe_unused]] constexpr uint32_t kGichLrVirtualIrqGrp1 = (1 << 30);
 constexpr uint32_t kGichLrStatePending = (1 << 28);
 constexpr uint32_t GICH_LR_PRIORITY(uint32_t x) {
   return x << 23;

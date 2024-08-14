@@ -133,9 +133,9 @@ constexpr uint64_t kSctlrEl2InitVal =
     kSctlrEl2SctlrEl1 | kSctlrEl2SaEl1 | kSctlrEl2SaEl2;
 
 /* HCR_EL2, Hypervisor Configuration Register */
-constexpr uint64_t kHcrEl2E2H = BIT64(34);
+[[maybe_unused]] constexpr uint64_t kHcrEl2E2H = BIT64(34);
 constexpr uint64_t kHcrEl2RW = BIT64(31);
-constexpr uint64_t kHcrEl2TGE = BIT64(27);
+[[maybe_unused]] constexpr uint64_t kHcrEl2TGE = BIT64(27);
 constexpr uint64_t kHcrEl2TACR = BIT64(21);
 constexpr uint64_t kHcrEl2TID3 = BIT64(18);
 constexpr uint64_t kHcrEl2TID2 = BIT64(17);

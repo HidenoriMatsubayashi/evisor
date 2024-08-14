@@ -13,7 +13,7 @@ namespace {
 // FIXME: use kUserSize
 constexpr uint32_t kPagingPages =
     static_cast<uint64_t>(1024) * 1024 * 1024 * 2 / PAGE_SIZE;
-constexpr uint32_t kMemMapSize = kPagingPages / 8;
+[[maybe_unused]] constexpr uint32_t kMemMapSize = kPagingPages / 8;
 
 uint8_t userMemoryRegionMap_[kPagingPages] = {0};
 uint32_t nextFreeSpaceIndex = 0;

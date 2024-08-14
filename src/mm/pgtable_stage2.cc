@@ -11,7 +11,7 @@ namespace evisor {
 
 namespace {
 
-constexpr uint64_t kStage2PteTypeBlock = 1;
+[[maybe_unused]] constexpr uint64_t kStage2PteTypeBlock = 1;
 constexpr uint64_t kStage2PteTypePage = 3;
 constexpr uint64_t kStage2PteTypePageTable = 3;
 
@@ -24,7 +24,7 @@ constexpr uint64_t kStage2PteAf = (1 << 10);
 // Non-shaeable
 constexpr uint64_t kStage2PteShNonShareable = (0 << 8);
 // SH Inner Shareable
-constexpr uint64_t kStage2PteShInnerShareable = (2 << 8);
+[[maybe_unused]] constexpr uint64_t kStage2PteShInnerShareable = (2 << 8);
 // SH Outer Shareable
 constexpr uint64_t kStage2PteShOuterShareable = (3 << 8);
 
@@ -35,9 +35,9 @@ constexpr uint64_t kStage2PteShOuterShareable = (3 << 8);
 // No access from EL1
 constexpr uint64_t kStage2PteS2ApNone = (0 << 6);
 // RO access from EL1
-constexpr uint64_t kStage2PteS2ApRO = (1 << 6);
+[[maybe_unused]] constexpr uint64_t kStage2PteS2ApRO = (1 << 6);
 // WO access from EL1
-constexpr uint64_t kStage2PteS2ApWO = (2 << 6);
+[[maybe_unused]] constexpr uint64_t kStage2PteS2ApWO = (2 << 6);
 // R/W Full access from EL1
 constexpr uint64_t kStage2PteS2ApRW = (3 << 6);
 
@@ -159,7 +159,7 @@ void PgTableStage2::FlushTlbVMID() {
       "tlbi vmalls12e1is\n"
       "dsb ish\n"
       "isb");
-  WRITE_CPU_REG(vttbr_el2, 0);
+  WRITE_CPU_REG(vttbr_el2, static_cast<uint64_t>(0));
 }
 
 }  // namespace evisor

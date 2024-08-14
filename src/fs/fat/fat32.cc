@@ -18,13 +18,13 @@ constexpr uint32_t kFat32MaxFileNameSize = 255;
 
 constexpr uint16_t kBootSignature = 0xAA55;
 
-constexpr uint8_t kAttrReadOnly = 0x01;
-constexpr uint8_t kAttrHidden = 0x02;
-constexpr uint8_t kAttrSystem = 0x04;
-constexpr uint8_t kAttrVolumeId = 0x08;
+[[maybe_unused]] constexpr uint8_t kAttrReadOnly = 0x01;
+[[maybe_unused]] constexpr uint8_t kAttrHidden = 0x02;
+[[maybe_unused]] constexpr uint8_t kAttrSystem = 0x04;
+[[maybe_unused]] constexpr uint8_t kAttrVolumeId = 0x08;
 constexpr uint8_t kAttrLongName = 0x0f;
 constexpr uint8_t kAttrDirectory = 0x10;
-constexpr uint8_t kAttrArchive = 0x20;
+[[maybe_unused]] constexpr uint8_t kAttrArchive = 0x20;
 
 constexpr uint8_t kDirNameEmptyEntry = 0x00;
 constexpr uint8_t kDirNameKanjiEntry = 0x05;
@@ -32,8 +32,8 @@ constexpr uint8_t kDirNameRemovedEntry = 0xE5;
 
 constexpr uint8_t kLfnLastLongEntry = 0x40;
 
-constexpr uint32_t kUnusedCluster = 0;
-constexpr uint32_t kReservedCluster = 1;
+[[maybe_unused]] constexpr uint32_t kUnusedCluster = 0;
+[[maybe_unused]] constexpr uint32_t kReservedCluster = 1;
 constexpr uint32_t kBadCluster = 0x0FFFFFF7;
 }  // namespace
 

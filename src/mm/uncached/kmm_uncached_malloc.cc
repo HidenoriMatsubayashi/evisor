@@ -17,14 +17,12 @@ namespace {
 bool kernelUncachedMemMap[UNCACHED_PAGES] = {false};
 }  // namespace
 
-void* kmm_uncached_malloc(size_t size) {
+void* kmm_uncached_malloc([[maybe_unused]] size_t size) {
   if (size < 1) {
     return nullptr;
   }
 
-  // FIXME
-  size = size;
-
+  // FIXME: need to consider 'size' var
   for (uint32_t i = 0; i < UNCACHED_PAGES; i++) {
     if (!kernelUncachedMemMap[i]) {
       kernelUncachedMemMap[i] = true;

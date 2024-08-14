@@ -12,13 +12,13 @@ namespace evisor {
 namespace {
 
 /* CNTHCTL_EL2 definitions */
-constexpr uint64_t kCnthctlEl2Evntdir = BIT64(3);
-constexpr uint64_t kCnthctlEl2Evnten = BIT64(2);
+[[maybe_unused]] constexpr uint64_t kCnthctlEl2Evntdir = BIT64(3);
+[[maybe_unused]] constexpr uint64_t kCnthctlEl2Evnten = BIT64(2);
 constexpr uint64_t kCnthctlEl2El1Pcen = BIT64(1);
 constexpr uint64_t kCnthctlEl2El1Pcten = BIT64(0);
 
 /* CNTHP_CTL_EL2 definitions */
-constexpr uint64_t kCnthpCtlEl2IStatus = BIT64(2);
+[[maybe_unused]] constexpr uint64_t kCnthpCtlEl2IStatus = BIT64(2);
 constexpr uint64_t kCnthpCtlEl2IMask = BIT64(1);
 constexpr uint64_t kCnthpCtlEl2Enable = BIT64(0);
 

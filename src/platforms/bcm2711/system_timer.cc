@@ -5,10 +5,10 @@
 namespace evisor {
 
 namespace {
-constexpr uint32_t kCsM0 = (1 << 0);
+[[maybe_unused]] constexpr uint32_t kCsM0 = (1 << 0);
 constexpr uint32_t kCsM1 = (1 << 1);
-constexpr uint32_t kCsM2 = (1 << 2);
-constexpr uint32_t kCsM3 = (1 << 3);
+[[maybe_unused]] constexpr uint32_t kCsM2 = (1 << 2);
+[[maybe_unused]] constexpr uint32_t kCsM3 = (1 << 3);
 }  // namespace
 
 SystemTimer::SystemTimer() {

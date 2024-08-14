@@ -26,21 +26,21 @@ constexpr uint32_t kStatus0MessageFull = 0x8000'0000;
 /// Channel 9: Request from VC for response by ARM (none currently defined)
 
 // Mailbox Channel 0: Power Management Interface
-constexpr uint8_t kChannelPower = 0;
+[[maybe_unused]] constexpr uint8_t kChannelPower = 0;
 // Mailbox Channel 1: Frame Buffer
-constexpr uint8_t kChannelFb = 1;
+[[maybe_unused]] constexpr uint8_t kChannelFb = 1;
 // Mailbox Channel 2: Virtual UART
-constexpr uint8_t kChannelUart = 2;
+[[maybe_unused]] constexpr uint8_t kChannelUart = 2;
 // Mailbox Channel 3: VCHIQ Interface
-constexpr uint8_t kChannelVChiq = 3;
+[[maybe_unused]] constexpr uint8_t kChannelVChiq = 3;
 // Mailbox Channel 4: LEDs Interface
-constexpr uint8_t kChannelLeds = 4;
+[[maybe_unused]] constexpr uint8_t kChannelLeds = 4;
 // Mailbox Channel 5: Buttons Interface
-constexpr uint8_t kChannelButtons = 5;
+[[maybe_unused]] constexpr uint8_t kChannelButtons = 5;
 // Mailbox Channel 6: Touchscreen Interface
-constexpr uint8_t kChannelTouch = 6;
+[[maybe_unused]] constexpr uint8_t kChannelTouch = 6;
 // Mailbox Channel 7: Counter
-constexpr uint8_t kChannelCount = 7;
+[[maybe_unused]] constexpr uint8_t kChannelCount = 7;
 // Mailbox Channel 8: Tags (ARM to VC)
 constexpr uint8_t kChannelTags = 8;
 

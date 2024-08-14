@@ -88,24 +88,24 @@ constexpr uint8_t kOp1SCR = 0b000;
 constexpr uint8_t kOp1PCR = 0b001;
 constexpr uint8_t kOp1DBG = 0b010;
 constexpr uint8_t kOp1VMSA_SCR = 0b011;
-constexpr uint8_t kOp1VMSA_HCR = 0b100;
-constexpr uint8_t kOp1VMSA_VTCR = 0b101;
+[[maybe_unused]] constexpr uint8_t kOp1VMSA_HCR = 0b100;
+[[maybe_unused]] constexpr uint8_t kOp1VMSA_VTCR = 0b101;
 constexpr uint8_t kCrnSCTLR_EL1 = 0;
 constexpr uint8_t kCrnACTLR_EL1 = 1;
-constexpr uint8_t kCrnCPACR_EL1 = 2;
-constexpr uint8_t kCrnSCR_EL1 = 3;
-constexpr uint8_t kCrnSDER32_EL3 = 4;
-constexpr uint8_t kCrnAFSR0_EL1 = 5;
-constexpr uint8_t kCrnAFSR1_EL1 = 6;
-constexpr uint8_t kCrnESR_EL1 = 7;
-constexpr uint8_t kCrnFAR_EL1 = 8;
-constexpr uint8_t kCrnHPFAR_EL2 = 9;
-constexpr uint8_t kCrnPAR_EL1 = 10;
-constexpr uint8_t kCrnPMCR_EL0 = 11;
-constexpr uint8_t kCrnPMCCFILTR_EL0 = 12;
+[[maybe_unused]] constexpr uint8_t kCrnCPACR_EL1 = 2;
+[[maybe_unused]] constexpr uint8_t kCrnSCR_EL1 = 3;
+[[maybe_unused]] constexpr uint8_t kCrnSDER32_EL3 = 4;
+[[maybe_unused]] constexpr uint8_t kCrnAFSR0_EL1 = 5;
+[[maybe_unused]] constexpr uint8_t kCrnAFSR1_EL1 = 6;
+[[maybe_unused]] constexpr uint8_t kCrnESR_EL1 = 7;
+[[maybe_unused]] constexpr uint8_t kCrnFAR_EL1 = 8;
+[[maybe_unused]] constexpr uint8_t kCrnHPFAR_EL2 = 9;
+[[maybe_unused]] constexpr uint8_t kCrnPAR_EL1 = 10;
+[[maybe_unused]] constexpr uint8_t kCrnPMCR_EL0 = 11;
+[[maybe_unused]] constexpr uint8_t kCrnPMCCFILTR_EL0 = 12;
 
 constexpr uint8_t kIssDirectionWrite = 0b0;
-constexpr uint8_t kIssDirectionRead = 0b1;
+[[maybe_unused]] constexpr uint8_t kIssDirectionRead = 0b1;
 
 inline uint8_t EsrEl2Ec(uint64_t esr) {
   return ((esr >> kEsrEl2EcShift) & 0x3f);
@@ -263,9 +263,9 @@ inline void HandleTrapSystem(uint32_t iss) {
 inline uint8_t ESR_EL2_ISS_EXCEPTION_FROM_DATA_ABORT_DFSC(uint64_t esr) {
   return esr & 0x3f;
 }
-constexpr uint8_t kEsrEl2DfscAddressSizeFault = 0b0000;
+[[maybe_unused]] constexpr uint8_t kEsrEl2DfscAddressSizeFault = 0b0000;
 constexpr uint8_t kEsrEl2DfscTranslationFault = 0b0001;
-constexpr uint8_t kEsrEl2DfscAccessFlagFault = 0b0010;
+[[maybe_unused]] constexpr uint8_t kEsrEl2DfscAccessFlagFault = 0b0010;
 constexpr uint8_t kEsrEl2DfscPermissionFault = 0b0011;
 
 /// SRT, bits [20:16]:
@@ -283,7 +283,7 @@ inline uint8_t ESR_EL2_ISS_EXCEPTION_FROM_DATA_ABORT_WNR(uint64_t esr) {
   return (esr >> 6) & 0x1;
 }
 constexpr uint8_t kEsrEl2IssExceptionFromDataAboartCausedByRead = 0;
-constexpr uint8_t kEsrEl2IssExceptionFromDataAboartCausedByWrite = 1;
+[[maybe_unused]] constexpr uint8_t kEsrEl2IssExceptionFromDataAboartCausedByWrite = 1;
 
 inline bool HandleTrapMemAbort(va_t addr, uint64_t esr) {
   const auto dfsc = ESR_EL2_ISS_EXCEPTION_FROM_DATA_ABORT_DFSC(esr);
