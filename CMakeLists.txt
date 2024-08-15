@@ -53,17 +53,18 @@ if (${BOARD} STREQUAL "raspi4")
     "src/drivers/clkrst/clkrst_bcm2711.cc"
     "src/drivers/gpio/gpio_bcm2711.cc"
     "src/drivers/mailbox/mailbox_bcm2711.cc"
+    "src/drivers/mmc/mmc.cc"
+    "src/drivers/mmc/mmc_card.cc"
+    "src/drivers/mmc/mmc_clock.cc"
+    "src/drivers/mmc/mmc_irq.cc"
+    "src/fs/fat/fat32.cc"
     "src/platforms/bcm2711/board_bcm2711.cc"
     "src/platforms/bcm2711/system_timer.cc"
     )
 else()
   add_definitions(-DBOARD_IS_QEMU)
   set(SOURCES_BOARD
-    "src/drivers/clkrst/clkrst_bcm2711.cc" # FIXME
-    "src/drivers/gpio/gpio_bcm2711.cc" # FIXME
-    "src/drivers/mailbox/mailbox_bcm2711.cc" # FIXME
     "src/platforms/qemu/board_qemu.cc"
-    "src/platforms/bcm2711/system_timer.cc" # FIXME
   )
 endif()
 set(SOURCES
@@ -90,10 +91,6 @@ set(SOURCES
   "src/common/functional/dummy.cc"
   "src/common/queue.cc"
   "src/drivers/common.cc"
-  "src/drivers/mmc/mmc.cc"
-  "src/drivers/mmc/mmc_card.cc"
-  "src/drivers/mmc/mmc_clock.cc"
-  "src/drivers/mmc/mmc_irq.cc"
   "src/drivers/uart/pl011_uart.cc"
   "src/kernel/kernel_main.cc"
   "src/kernel/sched/sched_core.cc"
@@ -102,7 +99,6 @@ set(SOURCES
   "src/kernel/sched/sched_task_console.cc"
   "src/kernel/sched/sched_virq.cc"
   "src/kernel/vm/vm.cc"
-  "src/fs/fat/fat32.cc"
   "src/fs/loader.cc"
   "src/mm/heap/kmm_malloc.cc"
   "src/mm/heap/kmm_zalloc.cc"

@@ -4,7 +4,9 @@
 
 #include "common/cstring.h"
 #include "common/logger.h"
+#if !defined(BOARD_IS_QEMU)
 #include "fs/fat/fat32.h"
+#endif
 #include "kernel/sched/sched.h"
 #include "kernel/task/task.h"
 #include "mm/new.h"
