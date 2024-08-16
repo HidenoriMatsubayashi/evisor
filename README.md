@@ -28,7 +28,7 @@
 ## System requrements
 
 ```shell
-sudo apt install cmake g++-aarch64-linux-gnu clang
+sudo apt install cmake g++-aarch64-linux-gnu clang llvm
 ```
 
 ## How to build

@@ -5,7 +5,9 @@
 
 namespace evisor {
 
+// Allocate kernel memory in the uncached memory space.
 void* kmm_uncached_malloc(size_t size);
+// Free kernel memory in the uncached memory space.
 void kmm_uncached_free(void* va);
 
 }  // namespace evisor
