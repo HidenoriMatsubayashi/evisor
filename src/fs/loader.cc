@@ -32,6 +32,10 @@ bool LoaderLoadFile(Tcb* tsk, const char* name, uint64_t va) {
     auto* buf = reinterpret_cast<uint8_t*>(PgTableStage1::PageMap(tsk, cur));
 
     for (int i = 0; i < PAGE_SIZE / kDiskSectorSize; i++) {
+      if (sector_remains <= 0) {
+        break;
+      }
+
       if (!virtio.ReadDisk(buf, sector_offset)) {
         LOG_ERROR("Failed to read. sector_offset: %d", sector_offset);
         return false;
