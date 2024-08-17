@@ -65,6 +65,7 @@ if (${BOARD} STREQUAL "raspi4")
 else()
   add_definitions(-DBOARD_IS_QEMU)
   set(SOURCES_BOARD
+    "src/drivers/virtio/virtio-blk.cc"
     "src/platforms/qemu/board_qemu.cc"
   )
 endif()

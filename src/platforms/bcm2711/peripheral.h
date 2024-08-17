@@ -13,6 +13,7 @@
 #define UART0_BASE                 (PERIPHERAL_BASE + 0x00201000)
 #define EMMC2_BASE                 (PERIPHERAL_BASE + 0x00340000)
 #define INTC_BASE                  0xFF800000
+#define VIRTIO_BASE                0xFFFF'FFFF  // dummy define
 
 #define GIC_V2_DISTRIBUTOR_BASE    (INTC_BASE + 0x00041000)
 #define GIC_V2_CPU_INTERFACE_BASE  (INTC_BASE + 0x00042000)
