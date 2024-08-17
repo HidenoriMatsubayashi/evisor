@@ -114,7 +114,9 @@ cmake --build .
 qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
   -machine virt,virtualization=on,gic-version=2 -net none \
   -chardev stdio,id=con,mux=on -serial chardev:con -mon chardev=con,mode=readline \
-  -kernel ./kernel.elf -m 1G
+  -kernel ./kernel.elf -m 1G \
+  -drive file=../examples/nuttx/nuttx.bin,format=raw,id=drive0,if=none \
+  -device virtio-blk-device,drive=drive0,bus=virtio-mmio-bus.0
 ```
 
 #### How to debug on QEMU
@@ -124,6 +126,8 @@ qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
   -machine virt,virtualization=on,gic-version=2 -net none \
   -chardev stdio,id=con,mux=on -serial chardev:con -mon chardev=con,mode=readline \
   -kernel ./kernel.elf -m 1G \
+  -drive file=../examples/nuttx/nuttx.bin,format=raw,id=drive0,if=none \
+  -device virtio-blk-device,drive=drive0,bus=virtio-mmio-bus.0 \
   -d mmu,in_asm,guest_errors,int,exec,page -D qemu_trace.log
 ```
 

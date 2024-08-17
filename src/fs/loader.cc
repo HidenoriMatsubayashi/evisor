@@ -4,7 +4,9 @@
 
 #include "common/cstring.h"
 #include "common/logger.h"
-#if !defined(BOARD_IS_QEMU)
+#if defined(BOARD_IS_QEMU)
+#include "drivers/virtio/virtio-blk.h"
+#else
 #include "fs/fat/fat32.h"
 #endif
 #include "kernel/sched/sched.h"
@@ -13,37 +15,31 @@
 #include "mm/pgtable_stage1.h"
 #include "platforms/timer.h"
 
-#if defined(BOARD_IS_QEMU)
-#if defined(TEST_GUEST_IS_NUTTX)
-#include "../examples/nuttx/qemu_rom.c"
-#elif defined(TEST_GUEST_IS_SERIAL)
-#include "../examples/serial/qemu_rom.c"
-#endif
-#endif
-
 namespace evisor {
 
 namespace {
 
+bool LoaderLoadFile(Tcb* tsk, const char* name, uint64_t va) {
 #if defined(BOARD_IS_QEMU)
-bool LoaderLoadFileQemu(Tcb* tsk, const char* name, uint64_t va) {
-  int remains = qemu_rom_bin_len;
-  int offset = 0;
+  auto& virtio = evisor::VirtioBlk::Get();
+  virtio.Init();
+
+  int64_t sector_remains = virtio.GetDiskCapacity() / kDiskSectorSize;
+  uint32_t sector_offset = 0;
   uint64_t cur = va & PAGE_MASK;
 
-  while (remains > 0) {
+  while (sector_remains > 0) {
     auto* buf = reinterpret_cast<uint8_t*>(PgTableStage1::PageMap(tsk, cur));
-    auto req_len = std::min(static_cast<int>(PAGE_SIZE), remains);
 
-    int reads = req_len;
-    memcpy(buf, &qemu_rom_bin[offset], req_len);
-    if (req_len != reads) {
-      LOG_ERROR("Failed to read. requested size: %d, actual size: %d", req_len,
-                reads);
-      return false;
+    for (int i = 0; i < PAGE_SIZE / kDiskSectorSize; i++) {
+      if (!virtio.ReadDisk(buf, sector_offset)) {
+        LOG_ERROR("Failed to read. sector_offset: %d", sector_offset);
+        return false;
+      }
+      sector_remains--;
+      sector_offset++;
+      buf += kDiskSectorSize;
     }
-    remains -= reads;
-    offset += reads;
     cur += PAGE_SIZE;
   }
 
@@ -51,9 +47,7 @@ bool LoaderLoadFileQemu(Tcb* tsk, const char* name, uint64_t va) {
   LOG_INFO("Successfully loaded %s", tsk->name);
 
   return true;
-}
 #else
-bool LoaderLoadFile(Tcb* tsk, const char* name, uint64_t va) {
   Fat32Fs* fs = new Fat32Fs();
 
   if (!fs->Init()) {
@@ -106,19 +100,16 @@ bool LoaderLoadFile(Tcb* tsk, const char* name, uint64_t va) {
   LOG_INFO("Successfully loaded %s", tsk->name);
 
   return true;
-}
 #endif
+}
 
 }  // namespace
 
 bool LoaderLoadVcpu(void* config, uint64_t* pc, uint64_t* sp) {
   auto* cfg = reinterpret_cast<LoaderVcpuConfig*>(config);
   auto* tsk = Sched::Get().GetCurrentTask();
-#if defined(BOARD_IS_QEMU)
-  if (!LoaderLoadFileQemu(tsk, cfg->filename, cfg->file_load_va)) {
-#else
+
   if (!LoaderLoadFile(tsk, cfg->filename, cfg->file_load_va)) {
-#endif
     return false;
   }
 
