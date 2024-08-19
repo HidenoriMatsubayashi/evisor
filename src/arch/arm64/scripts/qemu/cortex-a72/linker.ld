@@ -78,7 +78,7 @@ SECTIONS {
     . = . + 1024 * 1024 * 512;
     . = ALIGN(0x1000);
     __user_space_end = .;
-  }
+  } > RAM
   __user_space_size = __user_space_end - __user_space_start;
 
   /* 64MB stack region for Hypervisor */
