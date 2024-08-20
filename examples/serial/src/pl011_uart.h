@@ -9,9 +9,13 @@
 #include <stdint.h>
 
 #ifdef BOARD_IS_RASPI4
-#include "platforms/bcm2711/peripheral.h"
+#define PERIPHERAL_BASE            0xFE000000
+#define UART0_BASE                 (PERIPHERAL_BASE + 0x00201000)
+#define UART_REFERENCE_CLOCK       48000000
 #else
-#include "platforms/qemu/peripheral.h"
+#define PERIPHERAL_BASE            0x08000000
+#define UART0_BASE                 (PERIPHERAL_BASE + 0x01000000)
+#define UART_REFERENCE_CLOCK       24000000
 #endif
 
 /****************************************************************************
