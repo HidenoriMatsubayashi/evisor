@@ -4,6 +4,6 @@
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../cmake/aarch64-elf-gcc.cmake
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../cmake/cross-toolchain-clang-aarch64.cmake
 cmake --build .
 ```
