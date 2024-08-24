@@ -1,8 +1,7 @@
 # eVisor
 ![Build](https://github.com/HidenoriMatsubayashi/evisor/workflows/Build/badge.svg)
 
-`eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This project is aimed for embedded use (ARM64 devices) and educational purposes.
-
+`eVisor` is a light-weight Bare Metal Hypervisor (Type 1) written in C++. This project is intended for use in embedded systems (ARM64 devices) and for educational purposes.
 
 [eVisor demo video @ Youtube - NuttX runs on Raspberry Pi4](https://www.youtube.com/watch?v=A7E2ucZHLO0)
 
@@ -37,7 +36,7 @@ sudo apt install cmake g++-aarch64-linux-gnu clang llvm
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-clang-aarch64.cmake \
       -DCMAKE_BUILD_TYPE={Debug|Release} \
       -DBOARD={raspi4|qemu} \
       -DTEST_GUEST={serial|test_app|nuttx|linux}
@@ -60,7 +59,7 @@ cmake .. -DCMAKE_BUILD_TYPE={Debug|Release} \
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-clang-aarch64.cmake \
          -DCMAKE_BUILD_TYPE=Release -DBOARD=raspi4 -DTEST_GUEST=nuttx
 cmake --build .
 ```
@@ -103,7 +102,7 @@ sudo apt install qemu-system-arm
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-gcc-aarch64.cmake \
+cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-clang-aarch64.cmake \
          -DCMAKE_BUILD_TYPE=Release -DBOARD=qemu -DTEST_GUEST=nuttx
 cmake --build .
 ```
@@ -111,7 +110,7 @@ cmake --build .
 #### Running
 
 ```shell
-qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
+qemu-system-aarch64 -cpu cortex-a72 -smp 4 -nographic \
   -machine virt,virtualization=on,gic-version=2 -net none \
   -chardev stdio,id=con,mux=on -serial chardev:con -mon chardev=con,mode=readline \
   -kernel ./kernel.elf -m 1G \
@@ -122,7 +121,7 @@ qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
 #### How to debug on QEMU
 
 ```shell
-qemu-system-aarch64 -cpu cortex-a53 -smp 4 -nographic \
+qemu-system-aarch64 -cpu cortex-a72 -smp 4 -nographic \
   -machine virt,virtualization=on,gic-version=2 -net none \
   -chardev stdio,id=con,mux=on -serial chardev:con -mon chardev=con,mode=readline \
   -kernel ./kernel.elf -m 1G \
