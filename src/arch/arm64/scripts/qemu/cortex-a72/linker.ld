@@ -1,5 +1,5 @@
 /**
- * Linker Script for QEMU coretex-a72/virt/1GB
+ * Linker Script for QEMU coretex-a72/virt/4GB
  **/
 
 OUTPUT_ARCH(aarch64)
@@ -9,9 +9,9 @@ MEMORY
 {
   /*
    * U-BOOT loadd address: 0x40280000
-   * Physical memory size: 1GB
+   * Physical memory size: 4GB
    */
-	RAM      (xrw)  : ORIGIN = 0x40280000, LENGTH = 1 * 1024 * 1024 * 1024
+	RAM      (xrw)  : ORIGIN = 0x40280000, LENGTH = 4 * 1024 * 1024 * 1024
 }
 
 SECTIONS {
@@ -72,10 +72,10 @@ SECTIONS {
   } > RAM
   __uncached_space_size = __uncached_space_end - __uncached_space_start;
 
-  /* 512MB user memory region for guests */
+  /* 2G user memory region for guests */
   .user_space : ALIGN(0x1000) {
     __user_space_start = .;
-    . = . + 1024 * 1024 * 512;
+    . = . + 1024 * 1024 * 1024 * 2;
     . = ALIGN(0x1000);
     __user_space_end = .;
   } > RAM
