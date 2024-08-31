@@ -84,20 +84,20 @@ const std::array<evisor::Mmu::MmuMapRegion, 7> kMmuKernelRegions = {{
             static_cast<uint64_t>(evisor::Mmu::PageTableEntryL3Desc::kSecure),
     },
     {
-        .name = "kernel_heap",
-        .base_pa = reinterpret_cast<uint64_t>(__heap_start),
-        .base_va = reinterpret_cast<uint64_t>(__heap_start),
-        .size = reinterpret_cast<uint64_t>(__heap_size),
+        .name = "kernel_stack",
+        .base_pa = reinterpret_cast<uint64_t>(__stack_start),
+        .base_va = reinterpret_cast<uint64_t>(__stack_start),
+        .size = reinterpret_cast<uint64_t>(__stack_size),
         .attrs =
             static_cast<uint64_t>(evisor::Mmu::PageMemoryAttribute::kNormal) |
             static_cast<uint64_t>(evisor::Mmu::PageTableEntryL3Desc::kRW) |
             static_cast<uint64_t>(evisor::Mmu::PageTableEntryL3Desc::kSecure),
     },
     {
-        .name = "kernel_stack",
-        .base_pa = reinterpret_cast<uint64_t>(__stack_start),
-        .base_va = reinterpret_cast<uint64_t>(__stack_start),
-        .size = reinterpret_cast<uint64_t>(__stack_size),
+        .name = "kernel_heap",
+        .base_pa = reinterpret_cast<uint64_t>(__heap_start),
+        .base_va = reinterpret_cast<uint64_t>(__heap_start),
+        .size = reinterpret_cast<uint64_t>(__heap_size),
         .attrs =
             static_cast<uint64_t>(evisor::Mmu::PageMemoryAttribute::kNormal) |
             static_cast<uint64_t>(evisor::Mmu::PageTableEntryL3Desc::kRW) |

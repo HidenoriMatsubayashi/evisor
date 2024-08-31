@@ -29,14 +29,14 @@ void PrintDebugInfo() {
             kDataSize / 1000);
   LOG_TRACE("bss:      %08X - %08X (%d KB)", kBssStart, kBssEnd,
             kBssSize / 1000);
+  LOG_TRACE("stack:    %08X - %08X (%d KB)", kStackStart, kStackEnd,
+            kStackSize / 1000);
   LOG_TRACE("heap:     %08X - %08X (%d KB)", kHeapStart, kHeapEnd,
             kHeapSize / 1000);
   LOG_TRACE("uncached: %08X - %08X (%d KB)", kUncachedStart, kUncachedEnd,
             kUncachedSize / 1000);
   LOG_TRACE("user:     %08X - %08X (%d KB)", kUserStart, kUserEnd,
             kUserSize / 1000);
-  LOG_TRACE("stack:    %08X - %08X (%d KB)", kStackStart, kStackEnd,
-            kStackSize / 1000);
   LOG_TRACE("------------------------------------------");
 }
 

@@ -55,6 +55,14 @@ SECTIONS {
   } > RAM
   __bss_size = __bss_end - __bss_start;
 
+  /* 64MB stack region for Hypervisor */
+  .stack : ALIGN(0x1000) {
+    __stack_start = .;
+    . = ALIGN(0x1000);
+    __stack_end = __stack_start + (1024 * 1024) * 64;
+  } > RAM
+  __stack_size = __stack_end - __stack_start;
+
   /* 64MB heap region for Hypervisor */
   .heap : ALIGN(0x1000) {
     __heap_start = .;
@@ -81,12 +89,4 @@ SECTIONS {
     __user_space_end = .;
   } > RAM
   __user_space_size = __user_space_end - __user_space_start;
-
-  /* 64MB stack region for Hypervisor */
-  .stack : ALIGN(0x1000) {
-    __stack_start = .;
-    . = ALIGN(0x1000);
-    __stack_end = __stack_start + (1024 * 1024) * 64;
-  } > RAM
-  __stack_size = __stack_end - __stack_start;
 }
