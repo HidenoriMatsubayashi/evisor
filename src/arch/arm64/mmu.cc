@@ -438,8 +438,7 @@ void Mmu::SetPteBlockDesc(uint64_t* pte,
       }
 
       /* Make Normal RW memory as execute never */
-      if ((attrs & PageTableEntryL3Desc::kRW) ||
-          (attrs & PageTableEntryL3Desc::kExecuteNever)) {
+      if (attrs & PageTableEntryL3Desc::kExecuteNever) {
         desc |= PTE_BLOCK_DESC_PXN;
       }
       break;
