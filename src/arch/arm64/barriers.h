@@ -8,10 +8,10 @@ static inline void Arm64Isb() {
 }
 
 static inline void Arm64Dsb() {
-  __asm__ volatile("dsb");
+  __asm__ volatile("dsb sy");
 }
 static inline void Arm64DsbAllCore() {
-  __asm__ volatile("dsb sy");
+  __asm__ volatile("dsb osh");
 }
 
 }  // namespace evisor

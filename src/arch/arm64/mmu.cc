@@ -211,6 +211,7 @@ void Mmu::Init(const std::array<MmuMapRegion, 7>& kernel_regions,
     WRITE_CPU_REG(tcr_el2, GetTcr(2));
     WRITE_CPU_REG(ttbr0_el2, (uint64_t)s_base_xlat_table);
     WRITE_CPU_REG(vtcr_el2, VTCR_VALUE);
+    evisor::Arm64Dsb();
     evisor::Arm64Isb();
   }
 
