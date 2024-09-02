@@ -26,6 +26,12 @@
 
 ## System requrements
 
+### Operating Systems
+
+It is recommended to use Ubuntu 22.04 with Clang 14. Currently, this software may not be buildable on Ubuntu 24 or higher.
+
+### Build tools
+
 ```shell
 sudo apt install cmake g++-aarch64-linux-gnu clang llvm
 ```
