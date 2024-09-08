@@ -33,7 +33,7 @@ It is recommended to use Ubuntu 22.04 with Clang 14. Currently, this software ma
 ### Build tools
 
 ```shell
-sudo apt install cmake g++-aarch64-linux-gnu clang llvm
+sudo apt install cmake clang llvm
 ```
 
 #### libstdc++-12-dev installation
