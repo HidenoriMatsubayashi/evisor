@@ -36,6 +36,14 @@ It is recommended to use Ubuntu 22.04 with Clang 14. Currently, this software ma
 sudo apt install cmake g++-aarch64-linux-gnu clang llvm
 ```
 
+#### libstdc++-12-dev installation
+
+This software does not use C++ standart libraries (libstdc++), but if you hit a following cmake build error, try to install `libstdc++-12-dev`.
+
+```shell
+/usr/bin/ld: cannot find -lstdc++: No such file or directory
+```
+
 ## How to build
 
 ### Cross-building for ARM64 on x86_64
