@@ -7,6 +7,10 @@
 
 [![eVisor demo](https://user-images.githubusercontent.com/62131389/236593400-03de6bf3-6b06-41fe-b855-702fefc4a87d.png)](https://www.youtube.com/watch?v=A7E2ucZHLO0)
 
+## Book (Japanese)
+
+Please feel free to read [ゼロからのハイパーバイザ自作入門](https://zenn.dev/hidenori3/books/55ce98070299db) as well if you're interested. It’s a Japanese book about creating your own hypervisor.
+
 ## Supported devices
 
 - Raspberry Pi 4 Model B (BCM2711 / aarch64 only)
@@ -111,6 +115,8 @@ sudo minicom -D /dev/ttyUSB0
 ```shell
 sudo apt install qemu-system-arm 
 ```
+
+Note that QEMU 9.0 or higher is necessary to run this software. Please see [Download QEMU](https://www.qemu.org/download/).
 
 #### Building
 
