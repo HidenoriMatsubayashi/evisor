@@ -11,7 +11,7 @@ MEMORY
    * U-BOOT loadd address: 0x40280000
    * Physical memory size: 4GB
    */
-	RAM      (xrw)  : ORIGIN = 0x40280000, LENGTH = 4 * 1024 * 1024 * 1024
+  RAM      (xrw)  : ORIGIN = 0x40280000, LENGTH = 4 * 1024 * 1024 * 1024
 }
 
 SECTIONS {
