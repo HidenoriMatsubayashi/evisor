@@ -8,7 +8,7 @@ ENTRY(_start)
 MEMORY
 {
   /*
-   * PRI boot loader loadds kernel.bin to 0x40280000
+   * PRI boot loader loadds kernel.bin to 0x00200000
    * Physical memory size: 4GB
    */
   RESERVED (r)    : ORIGIN = 0x00000000, LENGTH = 32K
