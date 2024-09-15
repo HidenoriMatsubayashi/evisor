@@ -12,7 +12,7 @@ MEMORY
    * Physical memory size: 4GB
    */
   RESERVED (r)    : ORIGIN = 0x00000000, LENGTH = 32K
-	RAM      (xrw)  : ORIGIN = 0x00200000, LENGTH = (0x100000000 - 0x00200000)
+  RAM      (xrw)  : ORIGIN = 0x00200000, LENGTH = (0x100000000 - 0x00200000)
 }
 
 SECTIONS {
