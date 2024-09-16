@@ -152,7 +152,7 @@ void vfprintf(char* format, va_list va) {
       case 'd':
       case 'D':
         if (precision_long) {
-          litoa(va_arg(va, uint64_t), buf);
+          litoa(va_arg(va, int64_t), buf);
         } else {
           itoa(va_arg(va, int32_t), 10, buf);
         }
