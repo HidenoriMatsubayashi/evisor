@@ -107,7 +107,7 @@ void parse_field_width(char& c, char** src, int& res) {
   *src = p;
 }
 
-void puts(int field_width, bool flag_zero, char* buf) {
+void put_formatted_string(int field_width, bool flag_zero, char* buf) {
   // Fill empty fields with zero or space
   {
     int len = 0;
@@ -170,7 +170,7 @@ void vfprintf(char* format, va_list va) {
         } else {
           itoa(va_arg(va, int32_t), 10, buf);
         }
-        puts(field_width, flag_zero, buf);
+        put_formatted_string(field_width, flag_zero, buf);
         break;
       case 'u':
       case 'U':
@@ -179,7 +179,7 @@ void vfprintf(char* format, va_list va) {
         } else {
           uitoa(va_arg(va, uint32_t), 10, false, buf);
         }
-        puts(field_width, flag_zero, buf);
+        put_formatted_string(field_width, flag_zero, buf);
         break;
       case 'x':
       case 'X':
@@ -188,7 +188,7 @@ void vfprintf(char* format, va_list va) {
         } else {
           uitoa(va_arg(va, uint32_t), 16, (c == 'X'), buf);
         }
-        puts(field_width, flag_zero, buf);
+        put_formatted_string(field_width, flag_zero, buf);
         break;
       case 'c':
       case 'C':
@@ -196,7 +196,7 @@ void vfprintf(char* format, va_list va) {
         break;
       case 's':
       case 'S':
-        puts(field_width, 0, va_arg(va, char*));
+        put_formatted_string(field_width, 0, va_arg(va, char*));
         break;
       case '%':
         evisor::putc(c);
