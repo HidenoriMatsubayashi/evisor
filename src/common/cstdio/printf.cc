@@ -101,12 +101,15 @@ void parse_field_width(char& c, char** src, int& res) {
 void puts(int field_width, bool flag_zero, char* buf) {
   // Fill empty fields with zero or space
   {
+    int len = 0;
     char* p = buf;
-    while (*p++ && field_width > 0) {
-      field_width--;
+    while (p[len]) {
+      len++;
     }
+
+    int padding = field_width - len;
     const char c = flag_zero ? '0' : ' ';
-    while (field_width-- > 0) {
+    while (padding-- > 0) {
       evisor::putc(c);
     }
   }
@@ -129,20 +132,20 @@ void vfprintf(char* format, va_list va) {
     }
     c = *(format++);
 
-    // [flags]
+    // flags
     bool flag_zero = false;
     if (c == '0') {
       flag_zero = true;
       c = *(format++);
     }
 
-    // [minimum field width]
+    // minimum field width
     int field_width = 0;
     if ('0' <= c && c <= '9') {
       parse_field_width(c, &format, field_width);
     }
 
-    // [precision]
+    // precision
     bool precision_long = false;
     if (c == 'l') {
       precision_long = true;
