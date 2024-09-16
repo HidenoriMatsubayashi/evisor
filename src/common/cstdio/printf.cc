@@ -55,11 +55,20 @@ void uitoa(uint32_t value, uint8_t base, bool upper_cause, char* str) {
 }
 
 void itoa(int value, uint8_t base, char* str) {
+  bool negative = false;
+  uint32_t uvalue;
+
+  // Should consider integer overflow when the value is INT_MIN
   if (value < 0) {
-    value = -value;
+    negative = true;
+    uvalue = static_cast<uint32_t>(-(value + 1)) + 1;
+  } else {
+    uvalue = static_cast<uint32_t>(value);
+  }
+  if (negative) {
     *str++ = '-';
   }
-  uitoa(value, base, false, str);
+  uitoa(uvalue, base, false, str);
 }
 
 int atoi(const char c) {
