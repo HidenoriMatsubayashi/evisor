@@ -117,7 +117,9 @@ void puts(int field_width, bool flag_zero, char* buf) {
 }
 
 void vfprintf(char* format, va_list va) {
-  char buf[16];
+  // Max len is 65: Assuming the case of representing a 64-bit integer in
+  // binary.
+  char buf[65];
 
   while (auto c = *(format++)) {
     // %
