@@ -27,23 +27,21 @@ void ulitoa(uint64_t value, uint32_t base, bool upper_cause, char* str) {
   *str = 0;
 }
 
-void litoa(long value, char* str) {
+void litoa(int64_t value, char* str) {
   bool negative = false;
-  unsigned long uvalue;
+  uint64_t uvalue;
 
   // Should consider integer overflow when the value is LONG_MIN
   if (value < 0) {
     negative = true;
-    uvalue = static_cast<unsigned long>(-(value + 1)) + 1;
+    uvalue = static_cast<uint64_t>(-(value + 1)) + 1;
   } else {
-    uvalue = static_cast<unsigned long>(value);
+    uvalue = static_cast<uint64_t>(value);
   }
   if (negative) {
     *str++ = '-';
   }
   ulitoa(uvalue, 10, false, str);
-
-
 }
 
 void uitoa(uint32_t value, uint8_t base, bool upper_cause, char* str) {
@@ -65,7 +63,7 @@ void uitoa(uint32_t value, uint8_t base, bool upper_cause, char* str) {
   *str = 0;
 }
 
-void itoa(int value, uint8_t base, char* str) {
+void itoa(int32_t value, uint8_t base, char* str) {
   bool negative = false;
   uint32_t uvalue;
 
