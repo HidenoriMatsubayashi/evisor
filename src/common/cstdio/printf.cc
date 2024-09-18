@@ -3,7 +3,6 @@
 #include <cstdarg>
 
 #include "common/cstdio/putc.h"
-#include "common/cstdio/puts.h"
 #include "platforms/platform.h"
 
 namespace {
