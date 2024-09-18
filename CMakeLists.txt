@@ -48,8 +48,6 @@ set(SOURCES
   "src/common/cstdio/dummy.cc"
   "src/common/cstdio/printf.cc"
   "src/common/cstdio/putc.cc"
-  "src/common/cstdio/puts.cc"
-  "src/common/cstring/strlen.cc"
   "src/drivers/uart/pl011_uart.cc"
   "src/kernel/kernel_main.cc"
   "src/platforms/serial.cc"
