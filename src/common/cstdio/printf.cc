@@ -7,7 +7,7 @@
 
 namespace {
 
-void ulitoa(uint64_t value, uint32_t base, bool upper_cause, char* str) {
+void ulitoa(uint64_t value, uint32_t base, bool upper_case, char* str) {
   uint64_t v = 1;
   while (value / v >= base) {
     v *= base;
@@ -19,7 +19,7 @@ void ulitoa(uint64_t value, uint32_t base, bool upper_cause, char* str) {
     value %= v;
     v /= base;
     if (n || digit > 0 || v == 0) {
-      *str++ = digit + (digit < 10 ? '0' : (upper_cause ? 'A' : 'a') - 10);
+      *str++ = digit + (digit < 10 ? '0' : (upper_case ? 'A' : 'a') - 10);
       n++;
     }
   }
@@ -43,7 +43,7 @@ void litoa(int64_t value, char* str) {
   ulitoa(uvalue, 10, false, str);
 }
 
-void uitoa(uint32_t value, uint8_t base, bool upper_cause, char* str) {
+void uitoa(uint32_t value, uint8_t base, bool upper_case, char* str) {
   uint32_t v = 1;
   while (value / v >= base) {
     v *= base;
@@ -55,7 +55,7 @@ void uitoa(uint32_t value, uint8_t base, bool upper_cause, char* str) {
     value %= v;
     v /= base;
     if (n || digit > 0 || v == 0) {
-      *str++ = digit + (digit < 10 ? '0' : (upper_cause ? 'A' : 'a') - 10);
+      *str++ = digit + (digit < 10 ? '0' : (upper_case ? 'A' : 'a') - 10);
       n++;
     }
   }
