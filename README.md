@@ -11,7 +11,7 @@ Step-1 for [ゼロからのハイパーバイザ自作入門](https://zenn.dev/h
 
 ```shell
 mkdir build && cd build
-cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-clang-aarch64.cmake \
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-clang-aarch64.cmake \
       -DBOARD={raspi4|qemu}
 ```
 
@@ -19,7 +19,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=../cmake/cross-toolchain-clang-aarch64.cmake \
 
 ```shell
 mkdir build && cd build
-cmake -DBOARD={raspi4|qemu}
+cmake -DCMAKE_BUILD_TYPE=Release -DBOARD={raspi4|qemu}
 ```
 
 ## How to run on QEMU
