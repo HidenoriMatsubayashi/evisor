@@ -1,7 +1,5 @@
 #include "platforms/serial.h"
 
-#include "common/cctype.h"
-#include "common/logger.h"
 #include "platforms/platform.h"
 
 namespace evisor {
